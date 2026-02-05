@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        #number {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        button {
+            padding: 14px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            color: white;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="number">0</div>
+        <button id="btn">Increment</button>
+    </div>
+
+    <script>
+        let value = 0
+        const number = document.getElementById("number")
+        const btn = document.getElementById("btn")
+
+        function update() {
+            number.textContent = value
+        }
+
+        setInterval(() => {
+            value++
+            update()
+        }, 1000)
+
+        btn.onclick = () => {
+            value++
+            update()
+        }
+    </script>
+</body>
+</html>
